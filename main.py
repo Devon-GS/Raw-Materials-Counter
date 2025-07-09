@@ -6,7 +6,7 @@ def raw_materials():
     ingredients = {}
     
     # Load in receipes
-    df_r = pd.read_excel('Assets/Receipe.xlsx', na_values=None,keep_default_na=True)
+    df_r = pd.read_excel('Assets/Receipe.xls', na_values=None,keep_default_na=True)
     
     # Change nan to None 
     df_r_na = df_r.fillna('None')
@@ -26,7 +26,7 @@ def raw_materials():
     # Load items made and make list 
     made = []
     
-    df_m = pd.read_excel('Items_Made.xlsx', na_values=None, keep_default_na=True)
+    df_m = pd.read_excel('Items_Made.xls', na_values=None, keep_default_na=True)
     df_m_na = df_m.fillna('None')
     df_m_data = df_m_na.iloc[:, [0, 2]].values.tolist()
     
@@ -46,18 +46,11 @@ def raw_materials():
 # User Interface
 # ######################################################################
 
-while True:
-    print()
-    
-    for x, y in raw_materials().items():
-        print('{:<35s} {}'.format(x, y))
-        
-    print()
-    print('Type q to exit! or push any button to reload')
-    
-    user = input()
-        
-    if user == 'q':
-        print()
-        print('Exiting Program...')
-        break
+print()
+
+for x, y in raw_materials().items():
+    # print('{:<35s} {}'.format(x, y))
+    input('{:<35s} {}'.format(x, y))
+
+print()
+input('Exiting Program...')
